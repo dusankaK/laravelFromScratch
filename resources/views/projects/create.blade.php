@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+@extends('layout')
+
+@section('content')
     <h1>Create a New Project</h1>
 
     <form action="/projects" method="POST">
@@ -24,7 +21,4 @@
             <button type="submit">Create Project</button>
         </div>
     </form>
-
-        
-</body>
-</html>
+@endsection
