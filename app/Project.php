@@ -8,6 +8,11 @@ class Project extends Model
 {
     protected $guarded = [];
 
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+
     //Moze se desiti da korisnik unese neocekivani parametar putem zahteva ipritom se 
     //pojavljuje greska. Zbog toga se 
     //svojstvom  llable to resava takosto se navedu kolone koje se mogu menjati od strane korisnika.
