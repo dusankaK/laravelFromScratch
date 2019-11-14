@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <h1>Create a New Project</h1>
+    <h1 class="title">Create a New Project</h1>
 
     <form action="/projects" method="POST">
         @csrf 
@@ -9,16 +9,33 @@
         //csfr napravio jedan input tipa hidden, i parom name=>value(token=>vrednost tokena)
         //extra sekjuriti i proteksn--}}
 
-        <div>
-            <input type="text" name="title" placeholder="Project title">
+
+        {{--value="{{ old('title')}}" kada napisemo nekoliko karaktera u title input, a ti karakteri
+        imaju manje nego sto je odredjeno validacijom, posle submita ostaju nam ti isti karakteri u old input polju--}}
+
+        <div class="field">
+            <input type="text" class="input {{ $errors->has('title') ? 'is-danger' : ''}}"
+                   name="title" placeholder="Project title" value="{{ old('title')}}">
         </div>
 
-        <div>
-            <textarea name="description" cols="30" rows="10" placeholder="project description"></textarea>
+        <div class="field">
+            <textarea name="description" class="textarea {{ $errors->has('description') ? 'is-danger' : ''}}" 
+                      cols="30" rows="10" placeholder="Project description">{{ old('description')}}
+            </textarea>
         </div>
 
-        <div>
-            <button type="submit">Create Project</button>
+        <div class="field">
+            <button type="submit" class="button is-link">Create Project</button>
         </div>
+
+        @if($errors->any())
+        <div class="notification is-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li> {{ $error }}</li>                   
+                @endforeach
+            </ul>
+        </div>
+        @endif
     </form>
 @endsection
