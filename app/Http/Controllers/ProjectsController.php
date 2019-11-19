@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Project;
 use Illuminate\Support\Facades\View;
+use Illuminate\Filesystem\Filesystem;
 
 class ProjectsController extends Controller
 {
@@ -25,7 +26,7 @@ class ProjectsController extends Controller
     //}
 
     public function show(Project $project)
-    {
+    {   
         return view('projects.show', compact('project'));
     }
 

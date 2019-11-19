@@ -11,6 +11,15 @@
 |
 */
 
+ // app()->singleton('App\Example', function () {
+// app()->singleton('example', function () {
+//     // dd('called');
+//     return new \App\Example;
+// });
+Route::get('/', function () {
+//    dd(app('App\Example'));
+    return view('welcome');
+});
 
 /*
     7 behaviours:
@@ -28,10 +37,10 @@
 Route::resource('projects', 'ProjectsController');
 
 Route::post('projects/{project}/tasks', 'ProjectTasksController@store');
-//Route::get('/tasks/{task}', 'ProjectTasksController@update');
+Route::get('/tasks/{task}', 'ProjectTasksController@update');
 
-Route::post('/completed-tasks/{task}', 'CompletedTasksController@store');
-Route::delete('/completed-tasks/{task}', 'CompletedTasksController@destroy');
+//Route::post('/completed-tasks/{task}', 'CompletedTasksController@store');
+//Route::delete('/completed-tasks/{task}', 'CompletedTasksController@destroy');
 
 /*Route::get('/projects', 'ProjectsController@index');
 Route::get('/projects/create', 'ProjectsController@create');
