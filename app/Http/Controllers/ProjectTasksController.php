@@ -29,7 +29,7 @@ class ProjectTasksController extends Controller
         //    $task->incomplete();
         //}
 
-        request()->has('completed') ? $task->complete() : $task->incomplete();
+        // poslednje request()->has('completed') ? $task->complete() : $task->incomplete();
         //$task->complete(request()->has('completed'));
 
         //$task->update([
@@ -37,7 +37,7 @@ class ProjectTasksController extends Controller
         //]);
 
         
-        return back();
+        //return back();
     }
 
 
